@@ -1,0 +1,54 @@
+﻿@model IEnumerable<eva2Clinica.Models.Paciente>
+
+@{
+    ViewData["Title"] = "Listado de Pacientes";
+}
+
+<div class="container mt-4">
+    <h2>Gestión de Pacientes</h2>
+    <hr />
+
+    <div class="mb-3">
+        <a asp-action="Crear" class="btn btn-primary">Registrar Nuevo Paciente</a>
+    </div>
+
+    <div class="table-responsive">
+        <table class="tabla-clinica">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nombre Completo</th>
+                    <th>RUT</th>
+                    <th>Teléfono</th>
+                    <th>Diagnóstico</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (Model != null && Model.Any())
+                {
+                    foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@item.Id</td>
+                            <td>@item.NombreCompleto</td>
+                            <td>@item.Rut</td>
+                            <td>@item.Telefono</td>
+                            <td>@item.Diagnostico</td>
+                            <td>
+                                <a asp-action="Editar" asp-route-id="@item.Id" class="btn-clinica">Editar</a>
+                                <a asp-action="Eliminar" asp-route-id="@item.Id" class="btn-clinica btn-clinica-peligro">Eliminar</a>
+                            </td>
+                        </tr>
+                    }
+                }
+                else
+                {
+                    <tr>
+                        <td colspan="6" class="text-center">No hay pacientes registrados en el sistema.</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

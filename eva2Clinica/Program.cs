@@ -2,7 +2,9 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
-
+// Registrar la conexión y la lógica CRUD
+builder.Services.AddSingleton<eva2Clinica.Models.ConexionBD>();
+builder.Services.AddScoped<eva2Clinica.Models.PacienteData>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

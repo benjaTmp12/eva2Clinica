@@ -1,25 +1,25 @@
-using eva2Clinica.Models;
 using Microsoft.AspNetCore.Mvc;
-using System.Diagnostics;
 
 namespace eva2Clinica.Controllers
 {
     public class HomeController : Controller
     {
+        // 1. PÁGINA DE INICIO 
         public IActionResult Index()
         {
             return View();
         }
 
-        public IActionResult Privacy()
+        // 2. PÁGINA DE ESPECIALIDADES 
+        public IActionResult Especialidades()
         {
             return View();
         }
 
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
+        // 3. PÁGINA DE CONTACTO 
+        public IActionResult Contacto()
         {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+            return View();
         }
     }
 }
