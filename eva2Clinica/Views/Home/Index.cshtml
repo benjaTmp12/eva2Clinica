@@ -2,37 +2,14 @@
     ViewData["Title"] = "Inicio";
 }
 
-<section class="hero-section">
-    <div class="hero-content">
-        <h1>Tu salud es nuestra prioridad</h1>
-        <p>En Clínica Salud contamos con tecnología de punta y los mejores especialistas para cuidar de ti.</p>
+<div class="text-center mt-5">
+    <h1 class="display-4 text-primary fw-bold">Bienvenido a Clínica Web</h1>
+    <p class="lead">Tu salud es nuestra prioridad. Contamos con los mejores profesionales e infraestructura.</p>
+    <hr class="my-4" />
+    <p>Gestiona tus horas, revisa nuestras especialidades o contáctanos de manera rápida y segura.</p>
+    
+    <div class="mt-4">
+        <a asp-action="Especialidades" class="btn btn-primary btn-lg me-2">Ver Especialidades</a>
+        <a asp-action="Contacto" class="btn btn-outline-secondary btn-lg">Contáctanos</a>
     </div>
-</section>
-
-<section class="info-clinica">
-    <h2>Sobre Nuestra Clínica</h2>
-    <p>Somos una institución con más de 10 años de experiencia dedicada a brindar atención médica integral, humana y de calidad. Nuestras instalaciones están equipadas para resolver tus necesidades de salud de forma rápida y segura.</p>
-</section>
-
-<section class="especialidades">
-    <h2>Nuestras Especialidades</h2>
-    <div class="grid-especialidades">
-        <div class="card">
-            <div class="card-icon">🩺</div>
-            <h3>Medicina General</h3>
-            <p>Atención primaria, diagnósticos preventivos y derivación a especialistas.</p>
-        </div>
-        
-        <div class="card">
-            <div class="card-icon">🦷</div>
-            <h3>Odontología</h3>
-            <p>Salud bucal integral con tratamientos modernos y sin dolor.</p>
-        </div>
-        
-        <div class="card">
-            <div class="card-icon">👶</div>
-            <h3>Pediatría</h3>
-            <p>Cuidado médico especializado y amigable para los más pequeños del hogar.</p>
-        </div>
-    </div>
-</section>
+</div>

@@ -1,185 +1,57 @@
 /* =========================================
-   VARIABLES GLOBALES
+   ESTILOS PERSONALIZADOS - CLÍNICA WEB
    ========================================= */
-:root {
-    --primary-color: #0056b3; /* Azul médico profesional */
-    --secondary-color: #e3f2fd; /* Azul muy claro para fondos/hover */
-    --text-color: #333333;
-    --bg-color: #f4f7f6;
+
+/* Estilo propio para la tabla de pacientes */
+.tabla-clinica {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #ffffff;
 }
 
-/* =========================================
-   RESETEO Y ESTILOS BASE
-   ========================================= */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-
-body {
-    background-color: var(--bg-color);
-    color: var(--text-color);
-}
-
-/* =========================================
-   BARRA DE NAVEGACIÓN (HEADER)
-   ========================================= */
-.navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: var(--primary-color) !important;
-    padding: 1rem 2rem;
-    color: white !important;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-}
-
-    .navbar .logo {
-        font-size: 1.5rem;
+    .tabla-clinica th {
+        background-color: #2c3e50;
+        color: #ffffff;
+        padding: 12px;
+        text-align: left;
         font-weight: bold;
+        border-bottom: 3px solid #18bc9c;
     }
 
-.nav-links {
-    list-style: none;
-    display: flex;
-    gap: 1.5rem;
-    align-items: center;
-}
-
-    .nav-links a {
-        color: white !important;
-        text-decoration: none;
-        font-weight: 500;
-        transition: color 0.3s ease;
+    .tabla-clinica td {
+        padding: 12px;
+        border-bottom: 1px solid #e0e0e0;
+        color: #333333;
     }
 
-        .nav-links a:hover {
-            color: var(--secondary-color) !important;
-        }
+    .tabla-clinica tr:hover td {
+        background-color: #f1f8ff;
+    }
 
-/* Botón de Login (Puntaje Extra) */
-.btn-login {
-    background-color: black !important;
-    color: var(--primary-color) !important;
-    padding: 0.5rem 1rem;
-    border-radius: 5px;
+/* Botones personalizados */
+.btn-clinica {
+    background-color: #18bc9c;
+    color: white;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    text-decoration: none;
     font-weight: bold;
     transition: background-color 0.3s ease;
 }
 
-    .btn-login:hover {
-        background-color: var(--secondary-color) !important;
+    .btn-clinica:hover {
+        background-color: #128f76;
+        color: white;
     }
 
-/* =========================================
-   CONTENEDOR PRINCIPAL Y FOOTER
-   ========================================= */
-main {
-    min-height: 80vh;
-    padding: 2rem;
-    text-align: center;
+.btn-clinica-peligro {
+    background-color: #e74c3c;
 }
 
-footer {
-    text-align: center;
-    padding: 1.5rem;
-    background-color: #2c3e50 !important;
-    color: white !important;
-}
-
-/* =========================================
-   PÁGINA DE INICIO: SECCIÓN HERO
-   ========================================= */
-.hero-section {
-    background-color: var(--primary-color) !important; /* Fondo forzado */
-    color: white !important; /* Texto forzado */
-    padding: 4rem 2rem;
-    border-radius: 10px;
-    margin-bottom: 3rem;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-}
-
-    .hero-section h1,
-    .hero-section p {
-        color: white !important; /* Seguro contra el texto camuflado */
+    .btn-clinica-peligro:hover {
+        background-color: #c0392b;
     }
-
-    .hero-section h1 {
-        font-size: 2.5rem;
-        margin-bottom: 1rem;
-    }
-
-/* =========================================
-   PÁGINA DE INICIO: INFO CLÍNICA
-   ========================================= */
-.info-clinica {
-    max-width: 800px;
-    margin: 0 auto 4rem auto;
-    line-height: 1.6;
-    color: var(--text-color);
-}
-
-    .info-clinica h2,
-    .especialidades h2 {
-        color: var(--primary-color);
-        margin-bottom: 1.5rem;
-    }
-
-/* =========================================
-   PÁGINA DE INICIO: GRID DE ESPECIALIDADES
-   ========================================= */
-.grid-especialidades {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 2rem;
-    padding: 1rem;
-}
-
-/* Estilos de las Tarjetas (Cards) */
-.card {
-    background-color: white !important;
-    padding: 2rem;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.08);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    border-top: 4px solid transparent;
-}
-
-    .card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 8px 16px rgba(0,0,0,0.15);
-        border-top: 4px solid var(--primary-color);
-    }
-
-.card-icon {
-    font-size: 3rem;
-    margin-bottom: 1rem;
-}
-
-.card h3 {
-    margin-bottom: 0.5rem;
-    color: var(--text-color);
-}
-
-.card p {
-    color: #555555;
-}
-
-/* =========================================
-   DISEÑO RESPONSIVO (MÓVILES)
-   ========================================= */
-@media (max-width: 768px) {
-    .navbar {
-        flex-direction: column;
-        gap: 1rem;
-    }
-
-    .nav-links {
-        flex-direction: column;
-        gap: 1rem;
-        width: 100%;
-        text-align: center;
-    }
-}
