@@ -3,7 +3,7 @@ using eva2Clinica.Models;
 
 namespace eva2Clinica.Controllers
 {
-    public class PacienteController : Controller
+    public class PacienteController : AuthenticatedController
     {
         private readonly PacienteData _pacienteData;
 
