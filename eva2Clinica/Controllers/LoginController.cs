@@ -16,7 +16,7 @@ namespace eva2Clinica.Controllers
             if (login.Usuario == "admin" && login.Clave == "1234")
             {
                 HttpContext.Session.SetString("Usuario", login.Usuario);
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("Index", "Paciente");
             }
 
             ViewBag.Error = "Usuario o contraseña incorrectos";
