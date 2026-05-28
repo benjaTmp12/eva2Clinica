@@ -361,3 +361,5 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+/eva2Clinica/Controllers/AuthenticatedController.cs
+/eva2Clinica/Controllers/AuthenticatedController.cs

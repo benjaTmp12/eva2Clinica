@@ -1,4 +1,7 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Mvc;
+using System.Security.Claims;
 using eva2Clinica.Models;
 
 namespace eva2Clinica.Controllers
@@ -11,23 +14,32 @@ namespace eva2Clinica.Controllers
         }
 
         [HttpPost]
-        public IActionResult Index(LoginViewModel login)
+        public async Task<IActionResult> Index(LoginViewModel modelo)
         {
-            if (login.Usuario == "admin" && login.Clave == "1234")
+            if (modelo.Usuario == "admin" && modelo.Clave == "1234")
             {
-                HttpContext.Session.SetString("Usuario", login.Usuario);
+                var claims = new List<Claim>
+                {
+                    new Claim(ClaimTypes.Name, modelo.Usuario)
+                };
+
+                var claimsIdentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
+
+                // Crea la sesión válida
+                await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, new ClaimsPrincipal(claimsIdentity));
+
                 return RedirectToAction("Index", "Paciente");
             }
 
-            ViewBag.Error = "Usuario o contraseña incorrectos";
-            return View(login);
+            ViewBag.Error = "Usuario o contraseña incorrectos.";
+            return View(modelo);
         }
 
-        [HttpPost]
-        public IActionResult Logout()
+        public async Task<IActionResult> Salir()
         {
-            HttpContext.Session.Remove("Usuario");
-            return RedirectToAction("Index");
+            await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
+            return RedirectToAction("Index", "Home");
         }
     }
 }
+    
