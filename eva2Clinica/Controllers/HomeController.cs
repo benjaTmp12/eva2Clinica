@@ -2,7 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace eva2Clinica.Controllers
 {
-    public class HomeController : Controller
+    public class HomeController : AuthenticatedController
     {
         // 1. PÁGINA DE INICIO 
         public IActionResult Index()

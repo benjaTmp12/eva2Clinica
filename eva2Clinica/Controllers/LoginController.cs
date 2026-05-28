@@ -22,5 +22,12 @@ namespace eva2Clinica.Controllers
             ViewBag.Error = "Usuario o contraseña incorrectos";
             return View(login);
         }
+
+        [HttpPost]
+        public IActionResult Logout()
+        {
+            HttpContext.Session.Remove("Usuario");
+            return RedirectToAction("Index");
+        }
     }
 }
